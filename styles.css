@@ -1,0 +1,60 @@
+body {
+/*    background-image: url(images/gradient-background.png);*/
+    background-color: black;
+    color: darkgray;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.active {
+    margin-left: 20px;
+}
+
+#linkedin-icon,
+#git-hub-icon {
+    color: lightgray;
+    margin-right: 8px;
+    margin-top: 9px;
+}
+
+.navbar {
+    background-color: transparent;
+    border: 1px solid darkgrey;
+}
+
+
+/*
+.frame {
+   
+    border: 1px solid darkgray;
+    margin-top: 400px;
+    margin: 10px;
+    height: 20vh;
+    width: 20vh;
+    display: flex;
+    align-items: center;
+}
+*/
+
+h1 {
+    margin-top: 10%;
+    font-size: 50px;
+    text-align: center
+}
+
+.frame > img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-top: -60px;
+}
+
+#skills-panel {
+    margin-top: 100px;
+    width:  100%;
+}
+
+
+

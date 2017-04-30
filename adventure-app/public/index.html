@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AdventureApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adventure App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <navbar></navbar>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <!-- Third-party -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="http://code.angularjs.org/1.5.6/angular-route.js"></script>
+    <script src="components/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="components/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="components/bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
+
+    <!-- Main App -->
+    <script src="app.js"></script>
+    <script src="components/outings/outing.js"></script>
+    <script src="components/gear/addGear.js"></script>
+
+    <!-- Authentication -->
+    <script src="components/auth/auth.js"></script>
+    <script src="components/auth/login/login.js"></script>
+    <script src="components/auth/signup/signup.js"></script>
+    <script src="components/auth/logout/logout.js"></script> 
+    <script src="components/navbar/navbar.js"></script>  
+    <script src="components/profile/profile.js"></script>
+    <script src="components/auth/forgot/forgot.js"></script> 
+</body>
+
+</html>

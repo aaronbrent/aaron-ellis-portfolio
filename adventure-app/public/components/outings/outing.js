@@ -12,48 +12,78 @@ app.service("OutingService", ["$http", function ($http) {
 
     this.saveOuting = function (outing) {
         return $http.post("/api/outing", outing).then(function (response) {
+            
             return response.data;
         }, function (response) {
             alert("Error " + response.status + ": " + response.statusText);
         });
     };
 
-    this.getProducts = function (){
-        return $http.get('/api/user').then(function (response){
-            
+    this.getProducts = function () {
+        return $http.get('/api/user').then(function (response) {
+
             return response.data;
         }, function (response) {
-                alert("Error " + response.status + ": " + response.statusText);
-            });
+            alert("Error " + response.status + ": " + response.statusText);
+        });
     }
 }]);
 
 app.controller("OutingController", ["$scope", "$http", "OutingService", function ($scope, $http, OutingService) {
+
     $scope.outing = {};
     $scope.outings = [];
-
+    $scope.gears = [];
+    
+   
+    
     (function getProducts() {
         OutingService.getProducts().then(function (products) {
-            console.log(products)
+            
             $scope.products = products;
-
+           
         });
     })();
 
     (function getOutings() {
         OutingService.getOutings().then(function (outings) {
-
+            console.log (outings)
             $scope.outings = outings;
 
         });
     })();
-    
-    $scope.list1 = {title: 'AngularJS - Drag Me'};
-    $scope.list2 = {};
 
-    $scope.saveOuting = function (outing) {
-        console.log("click")
-        console.log(outing)
-        OutingService.saveOuting(outing);
+    
+    $scope.outing.gear = [];
+    console.log($scope.products)
+    console.log($scope.outing.gear)
+
+    $scope.saveOuting = function (outing, gears) {
+    
+        outing.gear = gears;
+        
+//        $scope.outings.push(outing);// get rid of this once I call the getOuting service below
+//        
+        OutingService.saveOuting(outing).then(function () {
+          
+            OutingService.getProducts().then(function (products) {
+            
+            $scope.products = products;
+           
+        });
+            
+          $scope.outing = {};  
+          $scope.gears = []
+
+        });
+        
+        (function getOutings() {
+        OutingService.getOutings().then(function (outings) {
+            console.log (outings)
+            $scope.outings = outings;
+
+        });
+    })();
+       
     }
 }]);

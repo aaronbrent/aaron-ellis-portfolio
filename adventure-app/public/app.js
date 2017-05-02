@@ -1,9 +1,10 @@
-var app = angular.module("AdventureApp", ["ngRoute", "AdventureApp.Auth", "ngDragDrop"]);
+var app = angular.module("AdventureApp", ["ngRoute", "AdventureApp.Auth", "ngDragDrop", 'youtube-embed']);
 
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "components/home/home.html"
+            templateUrl: "components/home/home.html",
+            controller: "homeController"
         })
         .when("/outings", {
             templateUrl: "components/outings/outing.html",

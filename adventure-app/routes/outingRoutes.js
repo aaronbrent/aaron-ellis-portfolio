@@ -3,14 +3,25 @@ var outingRouter = express.Router();
 var Outing = require("../models/outing");
 
 outingRouter.route("/")
+//    .get(function (req, res) {
+//
+//        Outing.find({
+//            user: req.user._id
+//        }, function (err, outings) {
+//            if (err) res.status(500).send(err);
+//            res.send(outings);
+//        });
+//    })
     .get(function (req, res) {
-
-        Outing.find({
-            user: req.user._id
-        }, function (err, outings) {
-            if (err) res.status(500).send(err);
-            res.send(outings);
-        });
+    
+        Outing.find(req.user._id)
+    
+            .populate("gear")
+            .exec(function (err, outings) {
+                if (err) return res.status(500).send(err);
+                
+                return res.send(outings)
+            });
     })
     .post(function (req, res) {
         var outing = new Outing(req.body);

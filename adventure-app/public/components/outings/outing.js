@@ -47,7 +47,7 @@ app.controller("OutingController", ["$scope", "$http", "OutingService", function
 
     (function getOutings() {
         OutingService.getOutings().then(function (outings) {
-            console.log (outings)
+            
             $scope.outings = outings;
 
         });
@@ -55,8 +55,7 @@ app.controller("OutingController", ["$scope", "$http", "OutingService", function
 
     
     $scope.outing.gear = [];
-    console.log($scope.products)
-    console.log($scope.outing.gear)
+    
 
     $scope.saveOuting = function (outing, gears) {
     
@@ -79,7 +78,7 @@ app.controller("OutingController", ["$scope", "$http", "OutingService", function
         
         (function getOutings() {
         OutingService.getOutings().then(function (outings) {
-            console.log (outings)
+            
             $scope.outings = outings;
 
         });

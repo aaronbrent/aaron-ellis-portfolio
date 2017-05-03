@@ -3,18 +3,12 @@ var outingRouter = express.Router();
 var Outing = require("../models/outing");
 
 outingRouter.route("/")
-//    .get(function (req, res) {
-//
-//        Outing.find({
-//            user: req.user._id
-//        }, function (err, outings) {
-//            if (err) res.status(500).send(err);
-//            res.send(outings);
-//        });
-//    })
+
     .get(function (req, res) {
-    
-        Outing.find(req.user._id)
+        
+        Outing.find({
+            user: req.user._id
+        })
     
             .populate("gear")
             .exec(function (err, outings) {
@@ -37,9 +31,8 @@ outingRouter.route("/")
 outingRouter.route("/:outingId")
     .get(function (req, res) {
 
-        Outing.findOne({
-            _id: req.params.outingId,
-            user: req.user._id
+        Outing.find({
+            user: req.query
         }, function (err, outing) {
             if (err) res.status(500).send(err);
             if (!outing) res.status(404).send("No outing found.");

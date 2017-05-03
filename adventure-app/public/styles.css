@@ -56,6 +56,26 @@ h3 {
     display: inline;
 }
 
+.athlete-gear {
+    width: 100%;
+}
+
+.athlete-products {
+    min-height: 50px;
+    max-height: 100px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+
+#profile-pic {
+    display: inline;
+    width:100px;
+}
+
+#athlete-name {
+    display: inline;
+}
+
 
 
 

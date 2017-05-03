@@ -1,9 +1,8 @@
 <div class="row">
-    <div class='col-sm-12 col-lg-12'>
+     <div class='col-sm-12 col-lg-12'>
         <button ng-hide='openForm' ng-click='openForm = !openForm' class='btn btn-primary'>See Add Gear</button>
     </div>
     <div class='col-sm-12 col-lg-12'>
-
         <button ng-show='openForm' ng-click='openForm = !openForm' class='btn btn-primary'>Hide Add Gear</button>
     </div>
     <form ng-show='openForm' class="col-md-4 well" name="gearForm" novalidate>
@@ -23,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="purchaseurl">Purchase Url</label>
-            <input type="text" name="purchaseurl" class="form-control" ng-model="gear.purchaseurl">
+            <input type="text" name="purchaseurl" class="form-control" ng-model="gear.purchaseUrl">
         </div>
 
         <button ng-click="saveProduct(gear)" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Save</button>

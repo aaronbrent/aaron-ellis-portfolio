@@ -1,26 +1,20 @@
 var app = angular.module("AdventureApp");
 
-app.service("homeService", ["$http", function ($http) {
+app.service("HomeService", ["$http", function ($http) {
 
-    this.getOutings = function () {
-        return $http.get("/api/outing").then(function (response) {
+    this.getAthletes = function (query) {
+        return $http.get("/athletes"+ query).then(function (response) {
+            console.log(response.data)
             return response.data;
         }, function (response) {
             alert("Error " + response.status + ": " + response.statusText);
         });
     };
 
-    this.saveOuting = function (outing) {
-        return $http.post("/api/outing", outing).then(function (response) {
-            
-            return response.data;
-        }, function (response) {
-            alert("Error " + response.status + ": " + response.statusText);
-        });
-    };
+   
 
-    this.getProducts = function () {
-        return $http.get('/api/user').then(function (response) {
+    this.getOutings = function (param) {
+        return $http.get('/athletes/'+ param).then(function (response) {
 
             return response.data;
         }, function (response) {
@@ -29,7 +23,30 @@ app.service("homeService", ["$http", function ($http) {
     }
 }]);
 
-app.controller("homeController", ["$scope", "UserService", function ($scope, UserService) {  
-    $scope.userService = UserService;
+app.controller("homeController", ["$scope", "HomeService", function ($scope, HomeService) {
+    
     $scope.test = "it's connected"
+
+    $scope.seeAthletes = function (search) {
+        
+        var query = "/?name="
+        query += search
+        console.log(query)
+        HomeService.getAthletes(query).then(function (response) {
+               
+                $scope.athletes = response;
+                var athleteId = response[0]._id;
+            HomeService.getOutings(athleteId).then(function (response){
+            $scope.outings = response;
+            console.log(response);   
+        })
+            
+            })
+        }
+    
+    $scope.seeOutings = function (athleteId){
+        
+        
+    }
+    
 }]);

@@ -30,6 +30,7 @@ app.use("/auth/change-password", expressJwt({secret: config.secret}));
 app.use("/auth", require("./routes/authRoutes")); 
 app.use("/api/gear", require("./routes/gearRoutes"));  
 app.use("/api/user", require("./routes/userRoutes")); 
+app.use("/athletes", require("./routes/homeRoutes")); 
 
 app.listen(port, function () {  
     console.log(`Server listening on port ${port}`);

@@ -27,8 +27,7 @@ productRoutes.route("/")
     
     .post(function (req, res) {
         var gear = new Gear(req.body);
-        console.log(req.user)
-    
+        
         gear.users.push(req.user._id)
         
         gear.save(function (err, newGear) {

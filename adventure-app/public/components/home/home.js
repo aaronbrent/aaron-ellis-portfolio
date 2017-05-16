@@ -25,7 +25,6 @@ app.service("HomeService", ["$http", function ($http) {
 
 app.controller("homeController", ["$scope", "HomeService", function ($scope, HomeService) {
     
-    $scope.test = "it's connected"
 
     $scope.seeAthletes = function (search) {
         

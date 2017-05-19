@@ -65,11 +65,14 @@ h1 {
 #profile-pic {
     max-width: 200px;
     border-radius: 100%;
-    border: 5px solid darkgray;
+    border: 15px solid rgba(210, 212, 212, 0.2);
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
 }
 
-.frame > img{
-/*    position: relative;*/
+.frame>img {
+    /*    position: relative;*/
     width: 100%;
 }
 
@@ -92,7 +95,7 @@ h1 {
     -ms-transform: translate(-50%, -50%)
 }
 
-.frame:hover > image {
+.frame:hover>image {
     background-color: black;
     opacity: 0.3;
 }
@@ -114,6 +117,5 @@ h4 {
 }
 
 textarea {
-    border-radius: 5px; 
+    border-radius: 5px;
 }
-
